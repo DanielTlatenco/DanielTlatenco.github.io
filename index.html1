@@ -473,16 +473,16 @@
           <i class="fas fa-file-pdf"></i>
           <div>
             <h3>Daniel Tlatenco — Resume</h3>
-            <p><i class="fas fa-file-code" style="font-size: 0.8rem;"></i> README.md · last updated 2025</p>
+            <p><i class="fas fa-file-pdf" style="font-size: 0.8rem;"></i> Daniel Tlatenco Resume.pdf</p>
           </div>
         </div>
         <div class="resume-actions">
-          <!-- "View" button opens the README.md file in a new tab -->
-          <a href="README.md" target="_blank" class="btn btn-outline">
+          <!-- "View" button opens the PDF in a new tab -->
+          <a href="Daniel Tlatenco Resume.pdf" target="_blank" class="btn btn-outline">
             <i class="fas fa-eye"></i> View
           </a>
-          <!-- "Download" button downloads the README.md file -->
-          <a href="README.md" download="README.md" class="btn btn-primary">
+          <!-- "Download" button downloads the PDF -->
+          <a href="Daniel Tlatenco Resume.pdf" download="Daniel Tlatenco Resume.pdf" class="btn btn-primary">
             <i class="fas fa-download"></i> Download
           </a>
         </div>
