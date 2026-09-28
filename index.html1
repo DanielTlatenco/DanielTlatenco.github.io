@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel Tlatenco · Portfolio</title>
+  <!-- Google Font & Font Awesome for clean icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fbfd;
+      color: #1e2b3c;
+      line-height: 1.5;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 2rem;
+      box-shadow: 0 20px 35px -8px rgba(0, 20, 30, 0.1);
+      padding: 2.5rem 2rem;
+      transition: all 0.2s;
+    }
+
+    /* header / intro with headshot */
+    .intro {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      border-bottom: 2px solid #e6edf4;
+      padding-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .intro-text {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .intro h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0a1c2f;
+      margin-bottom: 0.35rem;
+    }
+
+    .intro .one-liner {
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #2c3e50;
+      background: #eef5fa;
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      margin-top: 0.25rem;
+      border-left: 4px solid #1e6f9f;
+    }
+
+    .intro .contact {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+      color: #3e5a6b;
+    }
+
+    .intro .contact i {
+      margin-right: 6px;
+      color: #1e6f9f;
+    }
+
+    /* headshot placeholder */
+    .headshot {
+      flex-shrink: 0;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #d9e6f2, #c2d6e8);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #1e6f9f;
+      font-size: 2.5rem;
+      border: 4px solid #ffffff;
+      box-shadow: 0 12px 22px -8px rgba(21, 70, 105, 0.25);
+      transition: 0.15s;
+    }
+
+    .headshot i {
+      font-size: 3.2rem;
+      opacity: 0.8;
+    }
+
+    .headshot span {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 500;
+      margin-top: 6px;
+      color: #2a5e7c;
+      opacity: 0.8;
+    }
+
+    /* section styling */
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #0a1c2f;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 1.25rem;
+      border-bottom: 2px solid #d0e2f0;
+      padding-bottom: 0.5rem;
+    }
+
+    h2 i {
+      color: #1e6f9f;
+      font-size: 1.4rem;
+    }
+
+    /* skills badge grid */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .skill-badge {
+      background: #ecf3f9;
+      color: #143b54;
+      padding: 0.4rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid #c9ddec;
+      transition: 0.1s ease;
+    }
+
+    .skill-badge i {
+      color: #1e6f9f;
+      font-size: 0.9rem;
+    }
+
+    /* projects cards */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .project-card {
+      background: #f9fcff;
+      border: 1px solid #dae8f2;
+      border-radius: 20px;
+      padding: 1.5rem 1.4rem;
+      transition: 0.15s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      border-color: #9dc0db;
+      box-shadow: 0 8px 18px -8px rgba(23, 85, 120, 0.2);
+      background: #ffffff;
+    }
+
+    .project-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #0f2b3f;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .project-card h3 i {
+      color: #1e6f9f;
+      font-size: 1rem;
+    }
+
+    .project-card .project-meta {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #5b7e96;
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+    }
+
+    .project-card p {
+      font-size: 0.95rem;
+      color: #2b4252;
+      margin-bottom: 1rem;
+      flex: 1;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #1e6f9f;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: 0.1s;
+      align-self: flex-start;
+      margin-top: auto;
+    }
+
+    .project-link i {
+      font-size: 0.8rem;
+      transition: transform 0.1s;
+    }
+
+    .project-link:hover {
+      color: #0c4868;
+      border-bottom-color: #0c4868;
+    }
+
+    .project-link:hover i {
+      transform: translateX(3px);
+    }
+
+    /* resume section */
+    .resume-section {
+      background: #f4f9fe;
+      border-radius: 20px;
+      padding: 1.6rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      border: 1px solid #d6e6f2;
+      margin-bottom: 1rem;
+    }
+
+    .resume-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .resume-info i {
+      font-size: 2rem;
+      color: #1e6f9f;
+      background: #ffffff;
+      padding: 0.5rem;
+      border-radius: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    }
+
+    .resume-info h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0a1c2f;
+      margin-bottom: 0.2rem;
+    }
+
+    .resume-info p {
+      font-size: 0.9rem;
+      color: #3f627a;
+    }
+
+    .resume-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.6rem 1.4rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: 0.15s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #1e6f9f;
+      color: #ffffff;
+      box-shadow: 0 4px 8px rgba(26, 96, 141, 0.2);
+    }
+
+    .btn-primary:hover {
+      background: #155a82;
+      box-shadow: 0 6px 12px rgba(26, 96, 141, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #1e6f9f;
+      border: 1px solid #b8d2e7;
+    }
+
+    .btn-outline:hover {
+      background: #e5f0fa;
+      border-color: #1e6f9f;
+    }
+
+    /* extra touches for other info (certs, education, etc.) */
+    .quick-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem 2.5rem;
+      background: #f4f9fe;
+      border-radius: 18px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .quick-info-item {
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .quick-info-item i {
+      color: #1e6f9f;
+      width: 1.2rem;
+      text-align: center;
+    }
+
+    .quick-info-item strong {
+      font-weight: 600;
+      color: #0c2a3f;
+    }
+
+    .badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .badge-list span {
+      background: #e2eef9;
+      border-radius: 20px;
+      padding: 0.25rem 0.9rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #144a66;
+    }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #7a96aa;
+      border-top: 1px solid #dfeaf2;
+      padding-top: 1.5rem;
+    }
+
+    /* responsive */
+    @media (max-width: 700px) {
+      .container {
+        padding: 1.8rem 1.2rem;
+      }
+      .intro {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 1.2rem;
+      }
+      .headshot {
+        width: 110px;
+        height: 110px;
+        font-size: 2rem;
+      }
+      .headshot i {
+        font-size: 2.5rem;
+      }
+      .intro h1 {
+        font-size: 2rem;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .intro .one-liner {
+        font-size: 1.1rem;
+      }
+      .resume-section {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.5rem;
+      }
+      .resume-actions {
+        width: 100%;
+      }
+      .btn {
+        flex: 1;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .resume-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- PERSONAL STATEMENT / INTRO with headshot placeholder -->
+    <div class="intro">
+      <div class="intro-text">
+        <h1>Daniel Tlatenco</h1>
+        <div class="one-liner">
+          <i class="fas fa-quote-left" style="font-size: 0.8rem; opacity: 0.7; margin-right: 6px;"></i>
+          Accounting student & builder who turns data and operations into practical solutions.
+        </div>
+        <div class="contact">
+          <span><i class="fas fa-envelope"></i> danieltlatenco2@gmail.com</span>
+          <span><i class="fas fa-phone-alt"></i> (908) 514-0734</span>
+          <span><i class="fas fa-map-marker-alt"></i> Roselle Park, NJ</span>
+          <span><i class="fab fa-github"></i> github.com/danieltlatenco</span>
+        </div>
+      </div>
+      <!-- Headshot placeholder -->
+      <div class="headshot">
+        <i class="fas fa-user-circle"></i>
+        <span>headshot</span>
+      </div>
+    </div>
+
+    <!-- RESUME VIEW/DOWNLOAD SECTION -->
+    <section>
+      <h2><i class="fas fa-file-alt"></i> Resume</h2>
+      <div class="resume-section">
+        <div class="resume-info">
+          <i class="fas fa-file-pdf"></i>
+          <div>
+            <h3>Daniel Tlatenco — Resume</h3>
+            <p><i class="fas fa-file-code" style="font-size: 0.8rem;"></i> README.md · last updated 2025</p>
+          </div>
+        </div>
+        <div class="resume-actions">
+          <!-- "View" button opens the README.md file in a new tab -->
+          <a href="README.md" target="_blank" class="btn btn-outline">
+            <i class="fas fa-eye"></i> View
+          </a>
+          <!-- "Download" button downloads the README.md file -->
+          <a href="README.md" download="README.md" class="btn btn-primary">
+            <i class="fas fa-download"></i> Download
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SHOWCASE -->
+    <section>
+      <h2><i class="fas fa-cogs"></i> Skills</h2>
+      <div class="skills-grid">
+        <span class="skill-badge"><i class="fas fa-code"></i> Python</span>
+        <span class="skill-badge"><i class="fab fa-java"></i> Java</span>
+        <span class="skill-badge"><i class="fab fa-html5"></i> HTML</span>
+        <span class="skill-badge"><i class="fab fa-css3-alt"></i> CSS</span>
+        <span class="skill-badge"><i class="fab fa-js"></i> JavaScript</span>
+        <span class="skill-badge"><i class="fas fa-database"></i> SQL (basic)</span>
+        <span class="skill-badge"><i class="fas fa-chart-bar"></i> Data Analysis</span>
+        <span class="skill-badge"><i class="fas fa-laptop-code"></i> Web Development</span>
+        <span class="skill-badge"><i class="fas fa-chart-pie"></i> Business Analytics</span>
+        <span class="skill-badge"><i class="fas fa-users"></i> Team Collaboration</span>
+        <span class="skill-badge"><i class="fas fa-clock"></i> Time Management</span>
+        <span class="skill-badge"><i class="fas fa-comment-dots"></i> Written & Verbal Comm.</span>
+        <span class="skill-badge"><i class="fas fa-cash-register"></i> Customer Service</span>
+        <span class="skill-badge"><i class="fas fa-shield-alt"></i> CompTIA Security+</span>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION (2–3 with links) -->
+    <section>
+      <h2><i class="fas fa-folder-open"></i> Projects</h2>
+      <div class="projects-grid">
+        <!-- Project 1: Web Dev Barber Shop -->
+        <div class="project-card">
+          <h3><i class="fas fa-cut"></i> Barber Shop Website</h3>
+          <div class="project-meta">HTML · CSS · JavaScript · Java</div>
+          <p>
+            Collaborated in a 4-person team to design and develop a functional small-business website for a local barber shop in Rahway, NJ. Built front-end components using HTML, CSS, and JavaScript, applied Java programming concepts, and created features for viewing services and requesting appointments.
+          </p>
+          <a href="https://github.com/danieltlatenco/barbershop-project" class="project-link" target="_blank" rel="noopener">
+            View on GitHub <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Project 2: Organizational Consulting -->
+        <div class="project-card">
+          <h3><i class="fas fa-chart-line"></i> Field Hockey Consulting</h3>
+          <div class="project-meta">Research · Data Analysis · Report</div>
+          <p>
+            Partnered with Rutgers Field Hockey Club to identify operational issues. Designed surveys and interviews, collected qualitative & quantitative data, and co-authored a 12-page analytical report with actionable recommendations to improve communication and engagement.
+          </p>
+          <a href="https://github.com/danieltlatenco/consulting-project" class="project-link" target="_blank" rel="noopener">
+            Project summary <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Project 3: Landscaping Marketing -->
+        <div class="project-card">
+          <h3><i class="fas fa-leaf"></i> Landscaping Marketing</h3>
+          <div class="project-meta">Social Media · Content · Operations</div>
+          <p>
+            Created and managed a Facebook business page for a family-owned landscaping business, designed promotional content, and assisted with customer communication. Helped improve local visibility and attract new clients through targeted ads.
+          </p>
+          <a href="https://github.com/danieltlatenco/landscaping-marketing" class="project-link" target="_blank" rel="noopener">
+            Case study <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADDITIONAL INFO: EDUCATION / CERTIFICATIONS / HONORS -->
+    <section>
+      <h2><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
+      <div class="quick-info">
+        <div class="quick-info-item">
+          <i class="fas fa-university"></i>
+          <span><strong>Rutgers Business School</strong> — B.S. Accounting, GPA 4.0/4.0</span>
+        </div>
+        <div class="quick-info-item">
+          <i class="fas fa-certificate"></i>
+          <span><strong>CompTIA Security+</strong> (exp. 2028)</span>
+        </div>
+        <div class="quick-info-item">
+          <i class="fab fa-java"></i>
+          <span><strong>Oracle Java SE 8</strong> Programmer I & Foundations</span>
+        </div>
+        <div class="quick-info-item">
+          <i class="fas fa-language"></i>
+          <span><strong>NJ Seal of Biliteracy</strong> — Spanish</span>
+        </div>
+      </div>
+      <div class="badge-list" style="margin-top: 0.9rem;">
+        <span>Financial Accounting</span>
+        <span>Intermediate Accounting I</span>
+        <span>Database Management</span>
+        <span>Data Integrity & Security</span>
+        <span>Statistics I</span>
+        <span>Calculus I & II</span>
+      </div>
+    </section>
+
+    <!-- subtle footer -->
+    <footer>
+      <i class="fas fa-code"></i> Daniel Tlatenco · built for GitHub portfolio · 2025
+    </footer>
+  </div>
+</body>
+</html>
