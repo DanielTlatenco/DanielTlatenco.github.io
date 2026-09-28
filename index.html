@@ -84,12 +84,23 @@
       color: #1e6f9f;
     }
 
+    .intro .contact a {
+      color: #3e5a6b;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .intro .contact a:hover {
+      color: #1e6f9f;
+      text-decoration: underline;
+    }
+
     /* headshot — now uses the actual image */
     .headshot {
       flex-shrink: 0;
-      width: 160px;
-      height: 160px;
-      border-radius: 70%;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
       overflow: hidden;
       background: #d9e6f2;
       border: 4px solid #ffffff;
@@ -135,6 +146,41 @@
     h2 i {
       color: #1e6f9f;
       font-size: 1.4rem;
+    }
+
+    /* personal statement */
+    .personal-statement {
+      background: #f4f9fe;
+      border-radius: 20px;
+      padding: 1.75rem 2rem;
+      border: 1px solid #d6e6f2;
+      border-left: 5px solid #1e6f9f;
+      font-size: 1rem;
+      color: #2b4252;
+      line-height: 1.7;
+    }
+
+    .personal-statement p {
+      margin-bottom: 1rem;
+    }
+
+    .personal-statement p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .personal-statement .signature {
+      margin-top: 1rem;
+      font-weight: 500;
+      color: #0a1c2f;
+    }
+
+    .personal-statement .signature a {
+      color: #1e6f9f;
+      text-decoration: none;
+    }
+
+    .personal-statement .signature a:hover {
+      text-decoration: underline;
     }
 
     /* skills badge grid */
@@ -403,8 +449,8 @@
         gap: 1.2rem;
       }
       .headshot {
-        width: 150px;
-        height: 150px;
+        width: 110px;
+        height: 110px;
       }
       .intro h1 {
         font-size: 2rem;
@@ -426,6 +472,9 @@
       .btn {
         flex: 1;
         justify-content: center;
+      }
+      .personal-statement {
+        padding: 1.4rem 1.4rem;
       }
     }
 
@@ -452,11 +501,11 @@
           <i class="fas fa-quote-right" style="font-size: 0.8rem; opacity: 0.7; margin-right: 6px;"></i>
         </div>
         <div class="contact">
-          <span><i class="fas fa-envelope"></i>dt847@rutgers.edu</span>
+          <span><i class="fas fa-envelope"></i><a href="mailto:dt847@rutgers.edu">dt847@rutgers.edu</a></span>
           <span><i class="fas fa-phone-alt"></i> (908) 514-0734</span>
           <span><i class="fas fa-map-marker-alt"></i> Roselle Park, NJ</span>
-          <span><i class="fas fa-external-link-alt"></i> https://www.linkedin.com/in/danietlatenco1/<span>
-          <span><i class="fab fa-github"></i> github.com/danieltlatenco</span>
+          <span><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/danietlatenco1/" target="_blank" rel="noopener">linkedin.com/in/danietlatenco1</a></span>
+          <span><i class="fab fa-github"></i> <a href="https://github.com/danieltlatenco" target="_blank" rel="noopener">github.com/danieltlatenco</a></span>
         </div>
       </div>
       <!-- Headshot: image file -->
@@ -465,6 +514,22 @@
              onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user-circle fallback-icon\'></i>';">
       </div>
     </div>
+
+    <!-- PERSONAL STATEMENT SECTION -->
+    <section>
+      <h2><i class="fas fa-user-tie"></i> Personal Statement</h2>
+      <div class="personal-statement">
+        <p>
+          Hi, I'm Dan, a driven analytical student pursuing a degree in Accounting, Business Analytics &amp; IT, with a foundation in computer science. Throughout high school, I've gained technical proficiency in Python, Java, HTML/CSS, JavaScript, and database management.
+        </p>
+        <p>
+          Given my background, I am very passionate about the intersection of technology, finance, and data analytics. I aim to attain my CPA license while leveraging my deep technical background in computer science and data analytics to specialize in the future of accounting by combining financial expertise with technological innovation.
+        </p>
+        <p class="signature">
+          Feel free to contact me and reach out! — <a href="mailto:dt847@rutgers.edu">dt847@rutgers.edu</a>
+        </p>
+      </div>
+    </section>
 
     <!-- RESUME VIEW/DOWNLOAD SECTION -->
     <section>
@@ -510,13 +575,18 @@
     <section>
       <h2><i class="fas fa-folder-open"></i> Projects</h2>
       <div class="projects-grid">
-        <!-- Project 1: Barber Shop Website – link updated -->
+        <!-- Project 1: Barber Shop Website -->
         <div class="project-card">
           <h3><i class="fas fa-cut"></i> Barber Shop Website</h3>
           <div class="project-meta">HTML · CSS · JavaScript · Java</div>
           <p>
             Collaborated in a 4-person team to design and develop a functional small-business website for a local barber shop in Rahway, NJ. Built front-end components using HTML, CSS, and JavaScript, applied Java programming concepts, and created features for viewing services and requesting appointments.
           </p>
+          <div class="project-links">
+            <a href="https://shultonbarbershopnj.com/services" class="project-link" target="_blank" rel="noopener">
+              View live site <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
         </div>
 
         <!-- Project 2: Organizational Consulting – PDF links -->
