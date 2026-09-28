@@ -16,12 +16,116 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+      /* offset so section headings aren't hidden behind the sticky nav */
+      scroll-padding-top: 90px;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       background-color: #f9fbfd;
       color: #1e2b3c;
       line-height: 1.5;
       padding: 2rem 1rem;
+    }
+
+    /* ===== STICKY NAV BAR ===== */
+    .navbar {
+      position: sticky;
+      top: 1rem;
+      z-index: 100;
+      max-width: 1000px;
+      margin: 0 auto 1.5rem;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid #d6e6f2;
+      border-radius: 50px;
+      box-shadow: 0 8px 20px -8px rgba(20, 70, 105, 0.18);
+      padding: 0.55rem 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .navbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-logo {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #0a1c2f;
+      padding: 0.35rem 0.9rem 0.35rem 0.5rem;
+      white-space: nowrap;
+      border-right: 1px solid #d6e6f2;
+      margin-right: 0.25rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+      flex: 1;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #3e5a6b;
+      text-decoration: none;
+      padding: 0.45rem 0.9rem;
+      border-radius: 30px;
+      white-space: nowrap;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-link i {
+      font-size: 0.8rem;
+      color: #1e6f9f;
+    }
+
+    .nav-link:hover {
+      background: #eaf3fa;
+      color: #0a1c2f;
+    }
+
+    .nav-link.active {
+      background: #1e6f9f;
+      color: #ffffff;
+    }
+
+    .nav-link.active i {
+      color: #ffffff;
+    }
+
+    /* back-to-top button */
+    .back-to-top {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #1e6f9f;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+      margin-left: 0.25rem;
+      transition: 0.15s ease;
+      box-shadow: 0 4px 8px rgba(26, 96, 141, 0.25);
+    }
+
+    .back-to-top:hover {
+      background: #155a82;
+      transform: translateY(-2px);
     }
 
     .container {
@@ -128,6 +232,7 @@
     /* section styling */
     section {
       margin-bottom: 2.5rem;
+      /* extra scroll offset handled by html { scroll-padding-top } */
     }
 
     h2 {
@@ -440,6 +545,21 @@
 
     /* responsive */
     @media (max-width: 700px) {
+      body {
+        padding: 1rem 0.6rem;
+      }
+      .navbar {
+        top: 0.5rem;
+        border-radius: 30px;
+        padding: 0.45rem 0.6rem;
+      }
+      .nav-logo {
+        display: none;
+      }
+      .nav-link {
+        font-size: 0.78rem;
+        padding: 0.4rem 0.7rem;
+      }
       .container {
         padding: 1.8rem 1.2rem;
       }
@@ -476,6 +596,9 @@
       .personal-statement {
         padding: 1.4rem 1.4rem;
       }
+      html {
+        scroll-padding-top: 70px;
+      }
     }
 
     @media (max-width: 450px) {
@@ -490,7 +613,23 @@
   </style>
 </head>
 <body>
-  <div class="container">
+
+  <!-- ===== STICKY NAV ===== -->
+  <nav class="navbar" aria-label="Section navigation">
+    <span class="nav-logo">Daniel Tlatenco</span>
+    <div class="nav-links">
+      <a href="#about" class="nav-link"><i class="fas fa-user-tie"></i> About</a>
+      <a href="#resume" class="nav-link"><i class="fas fa-file-alt"></i> Resume</a>
+      <a href="#skills" class="nav-link"><i class="fas fa-cogs"></i> Skills</a>
+      <a href="#projects" class="nav-link"><i class="fas fa-folder-open"></i> Projects</a>
+      <a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a>
+    </div>
+    <a href="#top" class="back-to-top" aria-label="Back to top" title="Back to top">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+  </nav>
+
+  <div class="container" id="top">
     <!-- PERSONAL STATEMENT / INTRO with headshot -->
     <div class="intro">
       <div class="intro-text">
@@ -516,7 +655,7 @@
     </div>
 
     <!-- PERSONAL STATEMENT SECTION -->
-    <section>
+    <section id="about">
       <h2><i class="fas fa-user-tie"></i> Personal Statement</h2>
       <div class="personal-statement">
         <p>
@@ -532,7 +671,7 @@
     </section>
 
     <!-- RESUME VIEW/DOWNLOAD SECTION -->
-    <section>
+    <section id="resume">
       <h2><i class="fas fa-file-alt"></i> Resume</h2>
       <div class="resume-section">
         <div class="resume-info">
@@ -554,7 +693,7 @@
     </section>
 
     <!-- SKILLS SHOWCASE -->
-    <section>
+    <section id="skills">
       <h2><i class="fas fa-cogs"></i> Skills</h2>
       <div class="skills-grid">
         <span class="skill-badge"><i class="fas fa-code"></i> Python</span>
@@ -572,7 +711,7 @@
     </section>
 
     <!-- PROJECTS SECTION -->
-    <section>
+    <section id="projects">
       <h2><i class="fas fa-folder-open"></i> Projects</h2>
       <div class="projects-grid">
         <!-- Project 1: Barber Shop Website -->
@@ -619,7 +758,7 @@
     </section>
 
     <!-- ADDITIONAL INFO: EDUCATION / CERTIFICATIONS / HONORS -->
-    <section>
+    <section id="education">
       <h2><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
       <div class="quick-info">
         <div class="quick-info-item">
@@ -654,5 +793,35 @@
       <i class="fas fa-code"> </i> Daniel Tlatenco · 2026
     </footer>
   </div>
+
+  <!-- ===== ACTIVE NAV HIGHLIGHT ON SCROLL ===== -->
+  <script>
+    (function () {
+      const navLinks = document.querySelectorAll('.nav-link');
+      const sections = Array.from(navLinks).map(link =>
+        document.querySelector(link.getAttribute('href'))
+      );
+
+      function setActive() {
+        const scrollPos = window.scrollY + 120; // offset for sticky nav
+        let currentId = null;
+
+        sections.forEach(section => {
+          if (section && section.offsetTop <= scrollPos) {
+            currentId = section.id;
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + currentId);
+        });
+      }
+
+      window.addEventListener('scroll', setActive, { passive: true });
+      window.addEventListener('load', setActive);
+      setActive();
+    })();
+  </script>
+
 </body>
 </html>
